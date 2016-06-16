@@ -1,0 +1,16 @@
+<h2>login</h2>
+
+<% if @error %>
+  <div class="error"><%= @error %></div>
+<% end %>
+
+<form class='centered' action='/login' method='post'>
+  <p>email:</p>
+  <input autofocus type='text' name='user[email]'>
+  <p>password:</p>
+  <input type='password' name='user[password]'>
+  <br><br>
+  <input class='button' type='submit' value='login'>
+  <br><br>
+</form>
+
