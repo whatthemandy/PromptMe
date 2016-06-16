@@ -19,18 +19,18 @@
 </head>
 <body>
   <div class="container">
-    <h1 id="main-title"><a href="/">smacker.news</a></h1>
+    <h1 id="main-title"><a href="/">read.me</a></h1>
     <nav>
-      <ul>
+      <ul class="nav-bar">
          <% if logged_in? %>
-          <li class="status"><a href="/users/<%= current_user.id%>">welcome, <%= current_user.username %></a></li>
-          <li><a href="/logout">logout</a></li>
+          <li class="status"><a class="nav" href="/users/<%= current_user.id%>">welcome, <%= current_user.username %></a></li>
+          <li><a class="nav" href="/logout">logout</a></li>
          <% else %>
-         <li class="status"><a href="/login">you are not logged in</a></li>
-          <li><a href="/login">login</a></li>
-          <li><a href="/register">register</a></li>
+         <li class="status"><a class="nav" href="/login">you are not logged in</a></li>
+          <li><a class="nav" href="/login">login</a></li>
+          <li><a class="nav" href="/register">register</a></li>
          <% end %>
-        <li><a href="/">home</a></li>
+        <li><a class="nav" href="/">home</a></li>
       </ul>
     </nav>
     <%= yield %>

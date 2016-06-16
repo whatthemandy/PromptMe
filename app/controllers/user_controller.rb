@@ -1,5 +1,3 @@
-enable 'sessions'
-
 get '/register' do
   erb :register
 end
@@ -39,5 +37,5 @@ end
 
 get '/users/:id' do
   @user = User.find(params[:id])
-  erb :profile  # changed from: erb :user
+  erb :user
 end

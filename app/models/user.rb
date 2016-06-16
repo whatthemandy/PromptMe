@@ -3,6 +3,8 @@ class User < ActiveRecord::Base
   validates :email, :username, uniqueness: :true
   validate  :password_present?
 
+  has_many :prompts
+
   def self.authenticate(email, password)
     # if email and password correspond to a valid user, return that user
     # otherwise, return nil

@@ -1,5 +1,6 @@
-#main-title {
+#main-title a {
   text-align: left;
+  text-decoration: none;
 }
 
 .error {
@@ -7,51 +8,73 @@
   color: red;
 }
 
+h2 {
+  border-bottom: 1px solid black;
+  padding-bottom: 20px;
+  text-align: center;
+}
+
+a {
+  color: black;
+  text-decoration: underline;
+}
+
+.container {
+  margin: 50px;
+}
+
 nav {
   letter-spacing: 1px;
 }
 
-h2 {
-  border-bottom: 1px solid black;
-  padding-bottom: 20px;
-}
-
-#main-title a {
-  text-decoration: none;
-  color: black;
-}
-
-.container {
-  text-align: center;
-  margin: 50px;
-  }
-
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding-right: 20px;
-    overflow: hidden;
-    background-color: #333;
-    margin-bottom: 30px;
-}
-
-li {
-    float: right;
+.nav-bar {
+  list-style-type: none;
+  margin: 0;
+  padding-right: 20px;
+  overflow: hidden;
+  background-color: #333;
+  margin-bottom: 30px;
 }
 
 .status {
   float: left;
 }
 
-li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
+.nav {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  float: right;
 }
 
 /* Change the link color to #111 (black) on hover */
-li a:hover {
-    background-color: #000000;
+.nav:hover {
+  background-color: #000000;
 }
+
+/* make delete form button look like a link */
+.link-button {
+  background: none;
+  border: none;
+  text-decoration: underline;
+  cursor: pointer;
+  margin-left: -6px;
+}
+
+/* prompt list - align left with no bullets */
+.prompt-list {
+  list-style: none;
+  margin: auto;
+  padding: 0;
+}
+
+.centered {
+  text-align: center;
+}
+
+.space-above {
+  padding-top: 20px;
+}
+
