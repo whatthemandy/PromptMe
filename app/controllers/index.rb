@@ -1,3 +1,3 @@
-get "/" do
-  erb :home
+get '/' do
+  redirect '/prompts'
 end

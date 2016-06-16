@@ -1,10 +1,11 @@
-<h2><%= @user.username %>'s profile</h2>
+<% if @user == current_user %>
+  <h2> me </h2>
+<% else %>
+  <h2><%= @user.username %></h2>
+<% end %>
 
-<!-- in controller for whatever resource: -->
+<% @user.prompts.each do |prompt| %>
+  <%= prompt.idea %>
+<% end %>
 
-<!-- # View all RESOURCES by a user
-get '/users/:id/RESOURCES' do
-  @user = User.find(params[:id])
-  erb :user
-end
- -->
+

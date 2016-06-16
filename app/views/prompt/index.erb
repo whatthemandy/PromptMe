@@ -1,0 +1,30 @@
+<h2>home</h2>
+<h3>prompts:</h3>
+
+<!-- list all prompts on homepage -->
+<ul class="prompt-list">
+<% @prompts.each do |prompt| %>
+  <li class="space-above"><a href="/prompts/<%= prompt.id %>"><%= prompt.idea %></a></li>
+  <li>posted by: <a href="/users/<%= prompt.user_id %>"><%= prompt.user.username %></a></li>
+
+  <!-- if current user created the prompt, display edit and delete links -->
+  <% if prompt.user == current_user %>
+    <li><a href="/prompts/<%= prompt.id %>/edit">edit</a></li>
+    <li>
+      <form action="/prompts/<%= prompt.id %>" method='post'>
+        <input type="hidden" name="_method" value="delete">
+        <input type="submit" class="link-button" value="delete"></form>
+    </li>
+  <% end %>
+<% end %>
+</ul>
+
+<!-- if user is logged in, display link to add new prompt -->
+<br><br><br>
+<% if logged_in? %>
+  <div><a href="/prompts/new">add a prompt</a></div>
+<% else %>
+
+<!-- if user is not logged in, show link to log in -->
+  <div><a href="/login">log in to create prompt and write your story</a></div>
+<% end %>

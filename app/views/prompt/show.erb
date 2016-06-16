@@ -1,0 +1,7 @@
+<h3><%= @prompt.idea %></h3>
+
+<!-- if user is not logged in, show link to log in -->
+<% if !logged_in? %>
+  <a href="/login">log in to write your story</a>
+<% else %>
+<% end %>
