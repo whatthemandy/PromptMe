@@ -1,5 +1,9 @@
 <!-- display user prompts and stories -->
 
+<!-- use adorable avatars api to set up user avatar images -->
+<!-- http://avatars.adorable.io/#what -->
+<img src="https://api.adorable.io/avatars/285/<%= @user.username %>%40adorable.io" alt="avatar">
+
 <!-- if current user, display edit/delete buttons -->
 <% if @user == current_user %>
   <h2>my profile</h2>
@@ -7,7 +11,7 @@
   <ul class="no-bullets">
   <% @user.prompts.each do |prompt| %>
     <li class="space-above"><a href="/prompts/<%= prompt.id %>"><%= prompt.idea %></a></li>
-    <li><a href="/prompts/<%= prompt.id %>/edit">edit</a></li>
+    <li><a class="link" href="/prompts/<%= prompt.id %>/edit">edit</a></li>
     <li>
       <form action="/prompts/<%= prompt.id %>" method='post'>
         <input type="hidden" name="_method" value="delete">
@@ -23,7 +27,7 @@
   <% @user.stories.each do |story| %>
     <li class="space-above">prompt: <a href="/prompts/<%= story.prompt.id %>"><%= story.prompt.idea %></a></li>
     <li><%= story.body %></li> <!-- set up edit/delete story functionality -->
-    <li><a href="/stories/<%= story.id %>/edit">edit</a></li>
+    <li><a class="link" href="/stories/<%= story.id %>/edit">edit</a></li>
     <li>
       <form action="/stories/<%= story.id %>" method='post'>
         <input type="hidden" name="_method" value="delete">
