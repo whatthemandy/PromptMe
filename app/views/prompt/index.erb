@@ -7,14 +7,19 @@
 
 <table>
   <tr><td><img class="avatar" src="https://api.adorable.io/avatars/285/<%= prompt.user.username %>%40adorable.io" alt="avatar"></td>
-  <td class="posted-by">posted by: <a href="/users/<%= prompt.user_id %>"><%= prompt.user.username %></a></td>
+
+  <!-- if user has deleted post, do not link to profile -->
+  <% if prompt.user_id == 1 %>
+    <td class="posted-by">posted by: deleted</td>
+  <% else %>
+    <td class="posted-by">posted by: <a href="/users/<%= prompt.user_id %>"><%= prompt.user.username %></a></td>
+  <% end %>
   <td class="prompt-idea"><a href="/prompts/<%= prompt.id %>"><%= prompt.idea %></a></td></tr>
 </table>
 
 
 <% end %>
 </ul>
-
 <!-- if user is logged in, display link to add new prompt -->
 <br><br><br>
 <% if logged_in? %>
@@ -22,8 +27,5 @@
 <% else %>
 
 <!-- if user is not logged in, show link to log in -->
-<div><a class="button-link" href="/login">log in to create prompt and write your story</a></div>
+<div><a class="button-link" href="/login">log in to write your story</a></div>
 <% end %>
-
-
-
