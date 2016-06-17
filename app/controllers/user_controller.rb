@@ -37,5 +37,10 @@ end
 
 get '/users/:id' do
   @user = User.find(params[:id])
-  erb :'user/show'
+  if @user.id == 1
+    status 422
+    redirect "/"
+  else
+    erb :'user/show'
+  end
 end
