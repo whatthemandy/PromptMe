@@ -3,7 +3,6 @@
 <!-- use adorable avatars api to set up user avatar images -->
 <!-- http://avatars.adorable.io/#what -->
 
-
 <!-- if current user, display edit/delete buttons -->
 <% if @user == current_user %>
   <h2>my profile</h2>
@@ -50,6 +49,9 @@
 </ul><br><hr>
 
   <h3><%= @user.username %>'s stories</h3>
+  <!-- link to follow user on twitter - add twitter handle to required user fields so it will link to correct account -->
+  <a href="https://twitter.com/<%=@user.username%>" class="twitter-follow-button" data-show-count="false">Follow @<%=@user.username%></a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
   <ul class="no-bullets">
   <% @user.stories.each do |story| %>
     <li class="space-above">prompt: <a href="/prompts/<%= story.prompt.id %>"><%= story.prompt.idea %></a></li>
