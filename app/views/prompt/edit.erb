@@ -2,6 +2,6 @@
 <form action="/prompts/<%= @prompt.id %>" method="post">
   <input type="hidden" name="_method" value='patch'>
   edit prompt:<br><br>
-  <textarea autofocus name="prompt[idea]" rows="5" cols="50" placeholder="<%= @prompt.idea %>"></textarea><br><br>
+  <textarea autofocus name="prompt[idea]" rows="5" cols="50"><%= @prompt.idea %></textarea><br><br>
   <input type="submit" value="submit">
 </form>
