@@ -18,7 +18,7 @@ end
 patch '/stories/:id' do
   story = Story.find(params[:id])
   story.update(params[:story])
-  redirect '/'
+  redirect "/users/#{story.user_id}"
 end
 
 delete '/stories/:id' do
