@@ -12,3 +12,5 @@ $(document).ready(function() {
     $("#write-story").removeClass("hidden");
   });
 });
+
+

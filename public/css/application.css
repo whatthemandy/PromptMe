@@ -1,11 +1,7 @@
 body {
 /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#c7def5+16,d3e9f7+29,e3f2fb+62,cee7f8+86 */
-background: #c7def5; /* Old browsers */
-background: -moz-linear-gradient(top,  #c7def5 16%, #d3e9f7 29%, #e3f2fb 62%, #cee7f8 86%); /* FF3.6-15 */
-background: -webkit-linear-gradient(top,  #c7def5 16%,#d3e9f7 29%,#e3f2fb 62%,#cee7f8 86%); /* Chrome10-25,Safari5.1-6 */
-background: linear-gradient(to bottom,  #c7def5 16%,#d3e9f7 29%,#e3f2fb 62%,#cee7f8 86%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c7def5', endColorstr='#cee7f8',GradientType=0 ); /* IE6-9 */
-background-size: cover;
+  background-image: url(http://i.imgur.com/EinPKO3.jpg);
+  background-size: cover;
 }
 
 #main-title a {
