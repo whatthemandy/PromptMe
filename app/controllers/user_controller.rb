@@ -37,5 +37,5 @@ end
 
 get '/users/:id' do
   @user = User.find(params[:id])
-  erb :user
+  erb :'user/show'
 end
