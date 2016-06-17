@@ -14,8 +14,8 @@ background-size: cover;
 }
 
 .error {
-  background: white;
   color: red;
+  text-align: center;
 }
 
 h2 {
