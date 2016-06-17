@@ -5,7 +5,9 @@ $(document).ready(function() {
 
   // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
 
+  $("#show-me").on("click", function(event){
+    event.preventDefault();
 
-
-
+    $("#write-story").removeClass("hidden");
+  });
 });

@@ -154,7 +154,9 @@ img {
   border: solid 1px #203E5F;
 }
 
-
+.hidden {
+  display: none;
+}
 
 
 
