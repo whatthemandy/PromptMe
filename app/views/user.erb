@@ -26,7 +26,7 @@
   <ul class="no-bullets">
   <% @user.stories.each do |story| %>
     <li class="space-above">prompt: <a href="/prompts/<%= story.prompt.id %>"><%= story.prompt.idea %></a></li>
-    <li><%= story.body %></li> <!-- set up edit/delete story functionality -->
+    <li><%= story.body %></li>
     <li><a class="link" href="/stories/<%= story.id %>/edit">edit</a></li>
     <li>
       <form action="/stories/<%= story.id %>" method='post'>
