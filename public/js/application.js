@@ -8,6 +8,7 @@ $(document).ready(function() {
   $("#show-me").on("click", function(event){
     event.preventDefault();
 
+    $(this).hide();
     $("#write-story").removeClass("hidden");
   });
 });
