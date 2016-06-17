@@ -26,9 +26,9 @@
   <h3>my stories</h3>
   <ul class="no-bullets">
   <% @user.stories.each do |story| %>
-    <li class="space-above">prompt: <a href="/prompts/<%= story.prompt.id %>"><%= story.prompt.idea %></a></li>
+    <li class="space-above"><a href="/prompts/<%= story.prompt.id %>"><%= story.prompt.idea %></a></li>
     <li><%= story.body %></li>
-    <li><a class="link" href="/stories/<%= story.id %>/edit">edit</a></li>
+    <li class="space-above"><a class="button-link" href="/stories/<%= story.id %>/edit">edit</a></li><br>
     <li>
       <form action="/stories/<%= story.id %>" method='post'>
         <input type="hidden" name="_method" value="delete">
@@ -52,7 +52,7 @@
   <h3><%= @user.username %>'s stories</h3>
   <ul class="no-bullets">
   <% @user.stories.each do |story| %>
-    <li class="space-above">prompt: <a href="/prompts/<%= story.prompt.id %>"><%= story.prompt.idea %></a></li>
+    <li class="space-above"><a href="/prompts/<%= story.prompt.id %>"><%= story.prompt.idea %></a></li>
     <li><%= story.body %></li>
   <% end %>
   </ul>
