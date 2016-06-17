@@ -4,8 +4,14 @@
 <!-- list all prompts on homepage -->
 <ul class="no-bullets">
 <% @prompts.each do |prompt| %>
-  <li class="space-above"><a href="/prompts/<%= prompt.id %>"><%= prompt.idea %></a></li>
-  <li>posted by: <a href="/users/<%= prompt.user_id %>"><%= prompt.user.username %></a></li>
+
+<table>
+  <tr><td><img class="avatar" src="https://api.adorable.io/avatars/285/<%= prompt.user.username %>%40adorable.io" alt="avatar"></td>
+  <td class="posted-by">posted by: <a href="/users/<%= prompt.user_id %>"><%= prompt.user.username %></a></td>
+  <td class="prompt-idea"><a href="/prompts/<%= prompt.id %>"><%= prompt.idea %></a></td></tr>
+</table>
+
+
 <% end %>
 </ul>
 
@@ -18,3 +24,6 @@
 <!-- if user is not logged in, show link to log in -->
   <div><a href="/login">log in to create prompt and write your story</a></div>
 <% end %>
+
+
+
