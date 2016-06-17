@@ -1,3 +1,7 @@
+get '/stories/new' do
+  erb :'/story/form'
+end
+
 post '/stories' do
   story = Story.new(params[:story])
   user = current_user
