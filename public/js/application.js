@@ -11,4 +11,5 @@ $(document).ready(function() {
     $(this).hide();
     $("#write-story").removeClass("hidden");
   });
+
 });

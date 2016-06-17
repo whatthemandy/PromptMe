@@ -64,14 +64,7 @@ nav {
   background-color: #595959;
 }
 
-/* make delete form button look like a link */
-.link-button {
-  background: none;
-  border: none;
-  text-decoration: underline;
-  cursor: pointer;
-  color: #73243A;
-}
+
 
 /* prompt list - align left with no bullets */
 .no-bullets {
