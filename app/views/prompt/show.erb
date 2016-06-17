@@ -1,7 +1,6 @@
 <h2><%= @prompt.idea %></h2>
 
 <!-- show stories to anyone -->
-
 <h3>stories</h3>
 <% @prompt.stories.each do |story| %>
   <p class="space-above"><%= story.body %></p>
@@ -31,5 +30,4 @@
   <% end %>
 
 <% end %>
-
 

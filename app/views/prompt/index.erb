@@ -18,11 +18,11 @@
 <!-- if user is logged in, display link to add new prompt -->
 <br><br><br>
 <% if logged_in? %>
-  <div><a href="/prompts/new">create new prompt</a></div>
+  <div><a class="button-link" href="/prompts/new">create new prompt</a></div>
 <% else %>
 
 <!-- if user is not logged in, show link to log in -->
-  <div><a href="/login">log in to create prompt and write your story</a></div>
+<div><a class="button-link" href="/login">log in to create prompt and write your story</a></div>
 <% end %>
 
 

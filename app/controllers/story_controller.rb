@@ -26,3 +26,4 @@ delete '/stories/:id' do
   story.destroy
   redirect '/'
 end
+
