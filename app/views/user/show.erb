@@ -1,0 +1,63 @@
+<!-- display user prompts and stories -->
+
+<!-- use adorable avatars api to set up user avatar images -->
+<!-- http://avatars.adorable.io/#what -->
+
+
+<!-- if current user, display edit/delete buttons -->
+<% if @user == current_user %>
+  <h2>my profile</h2>
+  <img src="https://api.adorable.io/avatars/285/<%= @user.username %>%40adorable.io" alt="avatar">
+  <h3>my prompts</h3>
+  <ul class="no-bullets">
+  <% @user.prompts.each do |prompt| %>
+    <li class="space-above"><a href="/prompts/<%= prompt.id %>"><%= prompt.idea %></a></li>
+    <li><a class="link" href="/prompts/<%= prompt.id %>/edit">edit</a></li>
+    <li>
+      <form action="/prompts/<%= prompt.id %>" method='post'>
+        <input type="hidden" name="_method" value="delete">
+        <input type="submit" class="link-button" value="delete"></form>
+    </li>
+  <% end %>
+
+<br><br><br>
+<div><a class="button-link" href="/prompts/new">create new prompt</a></div><br><hr>
+
+  <h3>my stories</h3>
+  <ul class="no-bullets">
+  <% @user.stories.each do |story| %>
+    <li class="space-above">prompt: <a href="/prompts/<%= story.prompt.id %>"><%= story.prompt.idea %></a></li>
+    <li><%= story.body %></li>
+    <li><a class="link" href="/stories/<%= story.id %>/edit">edit</a></li>
+    <li>
+      <form action="/stories/<%= story.id %>" method='post'>
+        <input type="hidden" name="_method" value="delete">
+        <input type="submit" class="link-button" value="delete"></form>
+    </li>
+  <% end %>
+  </ul>
+
+<% else %>
+<!-- if not current user, do not display edit/delete buttons -->
+
+  <h2><%= @user.username %>'s profile</h2>
+  <img src="https://api.adorable.io/avatars/285/<%= @user.username %>%40adorable.io" alt="avatar">
+  <h3><%= @user.username %>'s prompts</h3>
+  <ul class="no-bullets">
+  <% @user.prompts.each do |prompt| %>
+    <li class="space-above"><a href="/prompts/<%= prompt.id %>"><%= prompt.idea %></a></li>
+  <% end %>
+</ul><br><hr>
+
+  <h3><%= @user.username %>'s stories</h3>
+  <ul class="no-bullets">
+  <% @user.stories.each do |story| %>
+    <li class="space-above">prompt: <a href="/prompts/<%= story.prompt.id %>"><%= story.prompt.idea %></a></li>
+    <li><%= story.body %></li>
+  <% end %>
+  </ul>
+
+<% end %>
+
+
+
