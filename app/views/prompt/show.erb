@@ -1,7 +1,6 @@
 <h2><%= @prompt.idea %></h2>
 
 <!-- show stories to anyone -->
-
 <h3>stories</h3>
 <% @prompt.stories.each do |story| %>
   <p class="space-above"><%= story.body %></p>
@@ -14,16 +13,17 @@
 
 <!-- if user is not logged in, show link to log in -->
 <% if !logged_in? %>
-  <div class="space-above"><a href="/login">log in to write your story</a></div>
+  <div class="space-above"><a class="button-link" href="/login">log in to write your story</a></div>
 <% else %>
 
   <!-- user is logged in -->
 
-  <!-- if user has not written a story for this prompt yet, show story form (via ajax) -->
+  <!-- if user has not written a story for this prompt yet, link to create story -->
+  <!-- when link is clicked, show story form (via jQuery) -->
 
   <% if !@prompt.stories.find_by(user_id: current_user.id) %>
-    <div class="space-above"><a href="/stories/new">write your story</a></div>
-    <form style="display: none;" class="bottom-border left";" action="/stories" method="post">
+    <div class="space-above"><a class="button-link" id="show-me" href="/stories/new">write your story</a></div><br>
+    <form id="write-story" class="hidden bottom-border left";" action="/stories" method="post">
       <input type="hidden" name="story[prompt_id]" value="<%= @prompt.id %>">
       <br><textarea autofocus rows="10" cols="70" name="story[body]"></textarea><br><br>
       <input type="submit" value="submit story">
@@ -31,5 +31,4 @@
   <% end %>
 
 <% end %>
-
 

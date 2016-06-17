@@ -2,12 +2,13 @@
 
 <!-- use adorable avatars api to set up user avatar images -->
 <!-- http://avatars.adorable.io/#what -->
-<img src="https://api.adorable.io/avatars/285/<%= @user.username %>%40adorable.io" alt="avatar">
+
 
 <!-- if current user, display edit/delete buttons -->
 <% if @user == current_user %>
   <h2>my profile</h2>
-  <h3>my prompts:</h3>
+  <img src="https://api.adorable.io/avatars/285/<%= @user.username %>%40adorable.io" alt="avatar">
+  <h3>my prompts</h3>
   <ul class="no-bullets">
   <% @user.prompts.each do |prompt| %>
     <li class="space-above"><a href="/prompts/<%= prompt.id %>"><%= prompt.idea %></a></li>
@@ -20,7 +21,7 @@
   <% end %>
 
 <br><br><br>
-<div><a href="/prompts/new">create new prompt</a></div><br><hr>
+<div><a class="button-link" href="/prompts/new">create new prompt</a></div><br><hr>
 
   <h3>my stories</h3>
   <ul class="no-bullets">
@@ -40,14 +41,15 @@
 <!-- if not current user, do not display edit/delete buttons -->
 
   <h2><%= @user.username %>'s profile</h2>
-  <h3><%= @user.username %>'s prompts:</h3>
+  <img src="https://api.adorable.io/avatars/285/<%= @user.username %>%40adorable.io" alt="avatar">
+  <h3><%= @user.username %>'s prompts</h3>
   <ul class="no-bullets">
   <% @user.prompts.each do |prompt| %>
     <li class="space-above"><a href="/prompts/<%= prompt.id %>"><%= prompt.idea %></a></li>
   <% end %>
 </ul><br><hr>
 
-  <h3><%= @user.username %>'s stories:</h3>
+  <h3><%= @user.username %>'s stories</h3>
   <ul class="no-bullets">
   <% @user.stories.each do |story| %>
     <li class="space-above">prompt: <a href="/prompts/<%= story.prompt.id %>"><%= story.prompt.idea %></a></li>
