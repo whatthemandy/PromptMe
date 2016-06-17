@@ -1,7 +1,35 @@
-<h3><%= @prompt.idea %></h3>
+<h2><%= @prompt.idea %></h2>
+
+<!-- show stories to anyone -->
+
+<h3>stories</h3>
+<% @prompt.stories.each do |story| %>
+  <p class="space-above"><%= story.body %></p>
+  <table>
+    <tr><td><img class="avatar-no-margin" src="https://api.adorable.io/avatars/285/<%= story.user.username %>%40adorable.io" alt="avatar"></td>
+    <td class="posted-by">posted by: <a href="/users/<%= story.user_id %>"><%= story.user.username %></a></td>
+  </table><br><hr>
+<% end %>
+
 
 <!-- if user is not logged in, show link to log in -->
 <% if !logged_in? %>
-  <a href="/login">log in to write your story</a>
+  <div class="space-above"><a href="/login">log in to write your story</a></div>
 <% else %>
+
+  <!-- user is logged in -->
+
+  <!-- if user has not written a story for this prompt yet, show story form (via ajax) -->
+
+  <% if !@prompt.stories.find_by(user_id: current_user.id) %>
+    <div class="space-above"><a href="/stories/new">write your story</a></div>
+    <form style="display: none;" class="bottom-border left";" action="/stories" method="post">
+      <input type="hidden" name="story[prompt_id]" value="<%= @prompt.id %>">
+      <br><textarea autofocus rows="10" cols="70" name="story[body]"></textarea><br><br>
+      <input type="submit" value="submit story">
+    </form><br>
+  <% end %>
+
 <% end %>
+
+

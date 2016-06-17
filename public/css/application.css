@@ -51,7 +51,7 @@ nav {
 
 /* Change the link color to #111 (black) on hover */
 .nav:hover {
-  background-color: #000000;
+  background-color: #595959;
 }
 
 /* make delete form button look like a link */
@@ -61,10 +61,11 @@ nav {
   text-decoration: underline;
   cursor: pointer;
   margin-left: -6px;
+  color: #73243A;
 }
 
 /* prompt list - align left with no bullets */
-.prompt-list {
+.no-bullets {
   list-style: none;
   margin: auto;
   padding: 0;
@@ -78,3 +79,32 @@ nav {
   padding-top: 20px;
 }
 
+img {
+  height: 200px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 50%;
+}
+
+.avatar {
+  height: 60px;
+  margin: 10px;
+}
+
+.avatar-no-margin {
+  height: 60px;
+  margin-right: 10px;
+}
+
+.posted-by {
+  width: 200px;
+}
+
+.prompt-idea {
+  width: 500px;
+}
+
+.link {
+  color: #73243A;
+}
