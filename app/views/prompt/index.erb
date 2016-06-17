@@ -6,7 +6,8 @@
 <% @prompts.each do |prompt| %>
 
 <table>
-  <tr><td><img class="avatar" src="https://api.adorable.io/avatars/285/<%= prompt.user.username %>%40adorable.io" alt="avatar"></td>
+
+  <div id="toggle"><tr><td><img class="avatar" src="https://api.adorable.io/avatars/285/<%= prompt.user.username %>%40adorable.io" alt="avatar"></td></div>
 
   <!-- if user has deleted post, do not link to profile -->
   <% if prompt.user_id == 1 %>

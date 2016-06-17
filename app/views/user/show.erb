@@ -11,7 +11,7 @@
   <ul class="no-bullets">
   <% @user.prompts.each do |prompt| %>
     <li class="space-above"><a href="/prompts/<%= prompt.id %>"><%= prompt.idea %></a></li>
-    <li><a class="link" href="/prompts/<%= prompt.id %>/edit">edit</a></li>
+    <li class="space-above"><a class="button-link" href="/prompts/<%= prompt.id %>/edit">edit</a></li><br>
     <li>
       <form action="/prompts/<%= prompt.id %>" method='post'>
         <input type="hidden" name="_method" value="delete">
