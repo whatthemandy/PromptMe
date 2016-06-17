@@ -64,7 +64,7 @@ nav {
 }
 
 /* prompt list - align left with no bullets */
-.prompt-list {
+.no-bullets {
   list-style: none;
   margin: auto;
   padding: 0;

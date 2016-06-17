@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   validate  :password_present?
 
   has_many :prompts
+  has_many :stories
 
   def self.authenticate(email, password)
     # if email and password correspond to a valid user, return that user
