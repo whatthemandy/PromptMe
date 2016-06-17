@@ -31,8 +31,9 @@ patch '/prompts/:id' do
   redirect '/'
 end
 
+# changed to reassign user - not really delete route anymore
 delete '/prompts/:id' do
   prompt = Prompt.find(params[:id])
-  prompt.destroy
+  prompt.update_attributes(user: User.first)
   redirect '/'
 end
