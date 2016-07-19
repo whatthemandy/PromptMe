@@ -1,18 +1,22 @@
-get '/prompts' do
+gget '/prompts' do
   @prompts = Prompt.all
   erb :'/prompt/index'
 end
 
 get '/prompts/new' do
+  @prompt = Prompt.new
   erb :'/prompt/form'
 end
 
 post '/prompts' do
   user = current_user
-  prompt = Prompt.new(params[:prompt])
-  prompt.user = user
-  prompt.save
-  redirect '/'
+  @prompt = Prompt.new(params[:prompt])
+  @prompt.user = user
+  if @prompt.save
+    redirect '/'
+  else
+    erb :'/prompt/form'
+  end
 end
 
 get '/prompts/:id' do
