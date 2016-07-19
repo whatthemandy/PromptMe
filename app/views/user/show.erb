@@ -19,7 +19,9 @@
     </li>
   <% end %>
 
-<p class="space-above"><i><b>Note: Deleting a prompt will remove it from your account, but will not remove it from the website.</b></i></p>
+<% if @user.prompts.any? %>
+  <p class="space-above"><i><b>Note: Deleting a prompt will remove it from your account, but will not remove it from the website.</b></i></p>
+<% end %>
 <div><a class="button-link" href="/prompts/new">create new prompt</a></div><br><hr>
 
   <h3>my stories</h3>
