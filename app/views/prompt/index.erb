@@ -10,7 +10,7 @@
   <div id="toggle"><tr><td><img class="avatar" src="https://api.adorable.io/avatars/285/<%= prompt.user.username %>%40adorable.io" alt="avatar"></td></div>
 
   <!-- if user has deleted post, do not link to profile -->
-  <% if prompt.user_id == 1 %>
+  <% if prompt.user == deleted_user %>
     <td class="posted-by">posted by: deleted</td>
   <% else %>
     <td class="posted-by">posted by: <a href="/users/<%= prompt.user_id %>"><%= prompt.user.username %></a></td>
