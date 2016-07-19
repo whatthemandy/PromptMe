@@ -3,15 +3,15 @@
 
 <!-- list all prompts on homepage -->
 <ul class="no-bullets">
-<% @prompts.each do |prompt| %>
+<% @prompts.order(created_at: :asc).each do |prompt| %>
 
 <table>
 
   <div id="toggle"><tr><td><img class="avatar" src="https://api.adorable.io/avatars/285/<%= prompt.user.username %>%40adorable.io" alt="avatar"></td></div>
 
   <!-- if user has deleted post, do not link to profile -->
-  <% if prompt.user_id == 1 %>
-    <td class="posted-by">posted by: deleted</td>
+  <% if prompt.user == deleted_user %>
+    <td class="posted-by">posted by: <i>deleted</i></td>
   <% else %>
     <td class="posted-by">posted by: <a href="/users/<%= prompt.user_id %>"><%= prompt.user.username %></a></td>
   <% end %>

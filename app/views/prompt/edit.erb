@@ -1,4 +1,14 @@
 <h2>edit prompt</h2>
+
+<ul>
+  <% if @prompt.errors.any? %>
+    <p class="errors"><b>Please try again:</b></p>
+    <% @prompt.errors.full_messages.each do |error| %>
+      <li class="errors"><%= error %></li>
+    <% end %>
+  <% end %>
+</ul>
+
 <form action="/prompts/<%= @prompt.id %>" method="post">
   <input type="hidden" name="_method" value='patch'>
   edit prompt:<br><br>

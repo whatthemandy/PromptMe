@@ -25,7 +25,7 @@ a {
   text-decoration: underline;
 }
 
-.container {
+#container {
   margin: 50px;
 }
 
@@ -148,7 +148,11 @@ img {
   display: none;
 }
 
-.width {
+#content {
   width: 60%;
   margin: auto;
+}
+
+.errors {
+  color: red;
 }

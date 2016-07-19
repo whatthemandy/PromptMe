@@ -37,7 +37,7 @@ end
 
 get '/users/:id' do
   @user = User.find(params[:id])
-  if @user.id == 1
+  if @user == deleted_user
     status 422
     redirect "/"
   else

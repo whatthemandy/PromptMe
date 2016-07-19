@@ -6,4 +6,8 @@ helpers do
   def logged_in?
     current_user ? true : false
   end
+
+  def deleted_user
+    User.order(id: :asc).first
+  end
 end

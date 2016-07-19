@@ -1,4 +1,14 @@
 <h2>create prompt</h2>
+
+<ul>
+  <% if @prompt.errors.any? %>
+    <p class="errors"><b>Please try again:</b></p>
+    <% @prompt.errors.full_messages.each do |error| %>
+      <li class="errors"><%= error %></li>
+    <% end %>
+  <% end %>
+</ul>
+
 <form action="/prompts" method="post">
   your idea here:<br><br><textarea autofocus name="prompt[idea]" rows="5" cols="50"></textarea><br><br>
   <input type="submit" value="create prompt">

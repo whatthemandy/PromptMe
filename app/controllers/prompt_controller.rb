@@ -4,15 +4,24 @@ get '/prompts' do
 end
 
 get '/prompts/new' do
+  @prompt = Prompt.new
   erb :'/prompt/form'
 end
 
 post '/prompts' do
   user = current_user
-  prompt = Prompt.new(params[:prompt])
-  prompt.user = user
-  prompt.save
-  redirect '/'
+  @prompt = Prompt.new(params[:prompt])
+  @prompt.user = user
+  # make sure changes can only be made to current user's info
+  if @prompt.user == current_user
+    if @prompt.save
+      redirect '/'
+    else
+      erb :'/prompt/form'
+    end
+  else
+    redirect '/'
+  end
 end
 
 get '/prompts/:id' do
@@ -26,14 +35,25 @@ get '/prompts/:id/edit' do
 end
 
 patch '/prompts/:id' do
-  prompt = Prompt.find(params[:id])
-  prompt.update(params[:prompt])
-  redirect '/'
+  @prompt = Prompt.find(params[:id])
+  if @prompt.user == current_user
+    if @prompt.update(params[:prompt])
+      redirect '/'
+    else
+      erb :'/prompt/edit'
+    end
+  else
+    redirect '/'
+  end
 end
 
-# changed to reassign user - not really delete route anymore
-delete '/prompts/:id' do
+# reassign prompt to "deleted" user
+patch '/prompts/:id/unassign' do
   prompt = Prompt.find(params[:id])
-  prompt.update_attributes(user: User.first)
-  redirect '/'
+  if prompt.user == current_user
+    prompt.update_attributes(user: deleted_user)
+    redirect '/'
+  else
+    redirect '/'
+  end
 end
