@@ -13,13 +13,13 @@
     <li class="space-above"><a href="/prompts/<%= prompt.id %>"><%= prompt.idea %></a></li>
     <li class="space-above"><a class="button-link" href="/prompts/<%= prompt.id %>/edit">edit</a></li><br>
     <li>
-      <form action="/prompts/<%= prompt.id %>" method='post'>
-        <input type="hidden" name="_method" value="delete">
+      <form action="/prompts/<%= prompt.id %>/unassign" method='post'>
+        <input type="hidden" name="_method" value="patch">
         <input type="submit" class="link-button" value="delete"></form>
     </li>
   <% end %>
 
-<br><br><br>
+<p class="space-above"><i><b>Note: Deleting a prompt will remove it from your account, but will not remove it from the website.</b></i></p>
 <div><a class="button-link" href="/prompts/new">create new prompt</a></div><br><hr>
 
   <h3>my stories</h3>
