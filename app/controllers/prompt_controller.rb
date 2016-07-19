@@ -12,10 +12,15 @@ post '/prompts' do
   user = current_user
   @prompt = Prompt.new(params[:prompt])
   @prompt.user = user
-  if @prompt.save
-    redirect '/'
+  # make sure changes can only be made to current user's info
+  if @prompt.user == current_user
+    if @prompt.save
+      redirect '/'
+    else
+      erb :'/prompt/form'
+    end
   else
-    erb :'/prompt/form'
+    redirect '/'
   end
 end
 
@@ -31,16 +36,24 @@ end
 
 patch '/prompts/:id' do
   @prompt = Prompt.find(params[:id])
-  if @prompt.update(params[:prompt])
-    redirect '/'
+  if @prompt.user == current_user
+    if @prompt.update(params[:prompt])
+      redirect '/'
+    else
+      erb :'/prompt/edit'
+    end
   else
-    erb :'/prompt/edit'
+    redirect '/'
   end
 end
 
 # reassign prompt to "deleted" user
 patch '/prompts/:id/unassign' do
   prompt = Prompt.find(params[:id])
-  prompt.update_attributes(user: deleted_user)
-  redirect '/'
+  if prompt.user == current_user
+    prompt.update_attributes(user: deleted_user)
+    redirect '/'
+  else
+    redirect '/'
+  end
 end
