@@ -1,4 +1,4 @@
-gget '/prompts' do
+get '/prompts' do
   @prompts = Prompt.all
   erb :'/prompt/index'
 end
@@ -30,9 +30,12 @@ get '/prompts/:id/edit' do
 end
 
 patch '/prompts/:id' do
-  prompt = Prompt.find(params[:id])
-  prompt.update(params[:prompt])
-  redirect '/'
+  @prompt = Prompt.find(params[:id])
+  if @prompt.update(params[:prompt])
+    redirect '/'
+  else
+    erb :'/prompt/edit'
+  end
 end
 
 # reassign prompt to "deleted" user
