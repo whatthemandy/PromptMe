@@ -18,8 +18,8 @@
   <title></title>
 </head>
 <body>
-  <div class="container">
-    <h1 id="main-title"><a href="/">read.me</a></h1>
+  <div id="container">
+    <h1 id="main-title"><a href="/">prompt.me</a></h1>
     <nav>
       <ul class="nav-bar">
          <% if logged_in? %>
@@ -33,7 +33,7 @@
         <li><a class="nav" href="/">home</a></li>
       </ul>
     </nav>
-    <div class="width">
+    <div id="content">
       <%= yield %>
     </div>
   </div>
