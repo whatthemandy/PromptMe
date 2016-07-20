@@ -7,6 +7,10 @@
 <% if @user == current_user %>
   <h2>my profile</h2>
   <img src="https://api.adorable.io/avatars/285/<%= @user.username %>%40adorable.io" alt="avatar">
+
+  <!-- link to follow user on twitter if they signed up with a handle -->
+  <%= erb :'/user/_twitter_link' %>
+
   <h3>my prompts</h3>
   <ul class="no-bullets">
   <% @user.prompts.each do |prompt| %>
@@ -43,17 +47,17 @@
 
   <h2><%= @user.username %>'s profile</h2>
   <img src="https://api.adorable.io/avatars/285/<%= @user.username %>%40adorable.io" alt="avatar">
+
+  <!-- link to follow user on twitter if they signed up with a handle -->
+  <%= erb :'/user/_twitter_link' %>
+
   <h3><%= @user.username %>'s prompts</h3>
   <ul class="no-bullets">
   <% @user.prompts.each do |prompt| %>
     <li class="space-above"><a href="/prompts/<%= prompt.id %>"><%= prompt.idea %></a></li>
   <% end %>
 </ul><br><hr>
-
   <h3><%= @user.username %>'s stories</h3>
-  <!-- link to follow user on twitter - add twitter handle to required user fields so it will link to correct account -->
-  <a href="https://twitter.com/<%=@user.username%>" class="twitter-follow-button" data-show-count="false">Follow @<%=@user.username%></a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-
   <ul class="no-bullets">
   <% @user.stories.each do |story| %>
     <li class="space-above"><a href="/prompts/<%= story.prompt.id %>"><%= story.prompt.idea %></a></li>
