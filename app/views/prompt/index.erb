@@ -11,9 +11,11 @@
 
   <!-- if user has deleted post, do not link to profile -->
   <% if prompt.user == deleted_user %>
-    <td class="posted-by">posted by: <i>deleted</i></td>
+    <td class="posted-by">posted by: <i>deleted</i><br>
+      (<%= prompt.stories.count %>) stories</td>
   <% else %>
-    <td class="posted-by">posted by: <a href="/users/<%= prompt.user_id %>"><%= prompt.user.username %></a></td>
+    <td class="posted-by">posted by: <a href="/users/<%= prompt.user_id %>"><%= prompt.user.username %></a><br>
+      (<%= prompt.stories.count %>) stories</td>
   <% end %>
   <td class="prompt-idea"><a href="/prompts/<%= prompt.id %>"><%= prompt.idea %></a></td></tr>
 </table>
