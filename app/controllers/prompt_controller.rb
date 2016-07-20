@@ -20,6 +20,7 @@ post '/prompts' do
       erb :'/prompt/form'
     end
   else
+    # status
     redirect '/'
   end
 end
@@ -55,7 +56,7 @@ patch '/prompts/:id/unassign' do
     prompt.update_attributes(user: deleted_user)
     redirect '/'
   else
-    status 422
+    # status
     redirect '/'
   end
 end
