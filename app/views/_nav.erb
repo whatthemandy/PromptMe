@@ -1,7 +1,7 @@
 <nav>
   <ul class="nav-bar">
      <% if logged_in? %>
-      <li class="status"><a class="nav" href="/users/<%= current_user.id%>">welcome, <%= current_user.username %></a></li>
+      <li class="status"><a class="nav" href="/users/<%= current_user.id%>"><%= current_user.username %></a></li>
       <li><a class="nav" href="/logout">logout</a></li>
      <% else %>
      <li class="status"><a class="nav" href="/login">you are not logged in</a></li>
