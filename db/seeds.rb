@@ -1,9 +1,9 @@
 deleted = User.create(username: "deleted", email: "deleted", password: "password")
-oliver = User.create(username: "oliver", email: "oliver@gmail.com", password: "password")
-dakota = User.create(username: "dakota", email: "dakota@gmail.com", password: "password")
+oliver = User.create(username: "oliver", twitter_handle: "oliverclarkemcd", email: "oliver@gmail.com", password: "password")
+dakota = User.create(username: "dakota", twitter_handle: "dakotajamesmoore", email: "dakota@gmail.com", password: "password")
 jack = User.create(username: "jack", email: "jack@gmail.com", password: "password")
-zelda = User.create(username: "zelda", email: "zelda@gmail.com", password: "password")
-maeve = User.create(username: "maeve", email: "maeve@gmail.com", password: "password")
+zelda = User.create(username: "zelda", twitter_handle: "zeldajayne", email: "zelda@gmail.com", password: "password")
+maeve = User.create(username: "maeve", twitter_handle: "maevemarielynn", email: "maeve@gmail.com", password: "password")
 
 
 prompt_one = Prompt.create(idea: "Why is your best friend your best friend?", user: oliver)
