@@ -9,14 +9,14 @@ get '/prompts/new' do
 end
 
 post '/prompts' do
-  user = current_user
   @prompt = Prompt.new(params[:prompt])
-  @prompt.user = user
+  @prompt.user = current_user
   # make sure changes can only be made to current user's info
   if @prompt.user == current_user
     if @prompt.save
       redirect '/'
     else
+      status 422
       erb :'/prompt/form'
     end
   else
@@ -40,6 +40,7 @@ patch '/prompts/:id' do
     if @prompt.update(params[:prompt])
       redirect '/'
     else
+      status 422
       erb :'/prompt/edit'
     end
   else
@@ -54,6 +55,7 @@ patch '/prompts/:id/unassign' do
     prompt.update_attributes(user: deleted_user)
     redirect '/'
   else
+    status 422
     redirect '/'
   end
 end
