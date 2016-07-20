@@ -1,4 +1,14 @@
 <h2>edit story</h2>
+
+<ul>
+  <% if @story.errors.any? %>
+    <p class="errors"><b>Please try again:</b></p>
+    <% @story.errors.full_messages.each do |error| %>
+      <li class="errors"><%= error %></li>
+    <% end %>
+  <% end %>
+</ul>
+
 <form action="/stories/<%= @story.id %>" method="post">
   <input type="hidden" name="_method" value='patch'>
   edit story:<br><br>
